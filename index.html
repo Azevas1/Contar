@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+    <style>
+        body{
+            background: rgb(13, 113, 172);
+            color: white;
+            font: normal 16pt arial;
+            
+        }
+        header{
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+        section{
+            background: cornsilk;
+            color: black;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 500px;
+            margin: auto;
+        }
+        div{
+            margin: 10px;
+            text-justify: auto;
+            width: 500px;
+
+        }   
+        
+        
+        button{
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #contagem{
+            width: 450px;
+        }
+    </style>
+</head>
+<body>
+    <Header><h1>Vamos Contar</h1></Header>
+    <section>
+        <div>Inicio:
+            <input type="number"  name="inicio" id="inicio">
+        </div>
+        <div>Fim:
+            <input type="number"  name="fim" id="fim">
+        </div>
+        <div>Passo:
+            <input type="number" value="contar" name="passo" id="passo">
+        </div>
+        <input type="button" value="Contar"  onclick="contar()">
+        <div id="contagem">Preparando a contagem...</div>
+
+    </section>
+
+    <script>
+        function contar(){
+            var inicio = document.getElementById("inicio")
+            var fim = document.getElementById("fim")
+            var passo = document.getElementById("passo")
+          
+            var contagem = document.getElementById("contagem")
+
+            if(inicio == 0 || fim == 0 || passo == 0){
+                contagem.innerHTML ="Impossivel contar, verifique os Parâmetros"
+            
+                }else {
+                    contagem.innerHTML =  "contando "
+                    let i = Number(inicio.value)
+                    let f = Number(fim.value)
+                    let p = Number(passo.value)
+                    if( p == 0 ){
+                        alert("passo será considerado 1")
+                        p = 1
+                    }
+                    if(i < f){
+                        for(let c = i ; c <= f ; c += p ){
+                            contagem.innerHTML += `${c} \u{1F449}`
+                        }
+                        contagem.innerHTML  += `${c}  \u{1F449}`
+                    }else {
+                             for(let c = i ; c >= f ; c -= p ){
+                                contagem.innerHTML  += `${c}  \u{1F449}`
+                        }
+                        contagem.innerHTML  += `${c}  \u{1F449}`
+                    }
+                        
+                         contagem.innerHTML += ` \u{1F3C1}`
+                }
+                
+            
+            }
+            
+        
+    </script>
+</body>
+</html>
